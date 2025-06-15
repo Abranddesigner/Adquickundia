@@ -75,20 +75,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form Submission
   const form = document.querySelector('#contactForm');
   const submitButton = document.querySelector('#submitButton');
-  submitButton.addEventListener('click', () => {
-    if (form.checkValidity()) {
-      const name = document.querySelector('#name').value;
-      const address = document.querySelector('#address').value;
-      const mobile = document.querySelector('#mobile').value;
-      const email = document.querySelector('#email').value;
-      const content = document.querySelector('#content').value;
-      const message = `Order Details:\nName: ${name}\nAddress: ${address}\nMobile: ${mobile}\nEmail: ${email}\nContent: ${content}`;
-      const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-    } else {
-      form.reportValidity();
-    }
-  });
+  if (submitButton) {
+    submitButton.addEventListener('click', () => {
+      if (form.checkValidity()) {
+        const name = document.querySelector('#name').value;
+        const address = document.querySelector('#address').value;
+        const mobile = document.querySelector('#mobile').value;
+        const email = document.querySelector('#email').value;
+        const content = document.querySelector('#content').value;
+        const message = `Order Details:\nName: ${name}\nAddress: ${address}\nMobile: ${mobile}\nEmail: ${email}\nContent: ${content}`;
+        const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      } else {
+        form.reportValidity();
+      }
+    });
+  }
 
   // Text Animation on Scroll
   const animatedElements = document.querySelectorAll('.animated-text');
@@ -106,6 +108,36 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(element);
   });
 });
+
+// Calculator for Bulk SMS/Call
+function calculateTotal(type) {
+  if (type === 'sms' || type === 'call' || type === 'whatsapp-sms') {
+    // For bulk-text-sms.html, bulk-voice-call.html, bulk-whatsapp-sms.html
+    const count = parseInt(document.getElementById('smsCount').value) || 0;
+    let rate = count < 50000 ? 0.25 : 0.21;
+    let totalAmount = count * rate;
+
+    const totalAmountElement = document.getElementById('totalAmount');
+    totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
+
+    const buyNowButton = document.getElementById('buyNowButton');
+    buyNowButton.disabled = totalAmount <= 0;
+  } else {
+    // For bulk-sms-call.html and digital-marketing.html (previous implementation)
+    const smsCount = parseInt(document.getElementById('smsCount').value) || 0;
+    const callCount = parseInt(document.getElementById('callCount').value) || 0;
+    const totalCount = smsCount + callCount;
+
+    let rate = totalCount < 50000 ? 0.25 : 0.21;
+    let totalAmount = totalCount * rate;
+
+    const totalAmountElement = document.getElementById('totalAmount');
+    totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
+
+    const buyNowButton = document.getElementById('buyNowButton');
+    buyNowButton.disabled = totalAmount <= 0;
+  }
+}
 
 function handleBuyNow(plan, price) {
   // Detect if the device is mobile or desktop
