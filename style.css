@@ -24,6 +24,8 @@ body {
   background-color: var(--secondary-bg);
   color: var(--text-color);
   line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* Animations */
@@ -37,6 +39,22 @@ body {
   to { opacity: 1; max-height: 300px; }
 }
 
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideOutToRight {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(50px); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
 .section {
   padding: 60px 20px;
   max-width: 1280px;
@@ -45,9 +63,18 @@ body {
   animation: fadeIn 0.8s ease-out;
 }
 
+/* Animated Text */
+.animated-text {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.animated-text.hide {
+  animation: slideOutToRight 0.5s ease-out forwards;
+}
+
 /* Header */
 header {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #000000; /* Solid Black */
   padding: 16px 24px;
   position: sticky;
   top: 0;
@@ -114,7 +141,7 @@ nav a:hover, nav a.active {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000000;
   border-radius: 8px;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -134,7 +161,7 @@ nav a:hover, nav a.active {
   background-color: var(--accent-color);
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown.active .dropdown-menu {
   display: block;
   animation: slideDown 0.3s ease-out;
 }
@@ -144,6 +171,28 @@ nav a:hover, nav a.active {
   font-size: 1.8rem;
   color: #FFFFFF;
   cursor: pointer;
+}
+
+/* Floating Social Media Icons */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  pointer-events: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-icon img {
+  width: 40px;
+  height: 40px;
 }
 
 /* Big Banner Slider */
@@ -518,7 +567,7 @@ footer p {
     right: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #000000;
     padding: 20px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -529,7 +578,7 @@ footer p {
   }
   .dropdown-menu {
     position: static;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #000000;
     animation: none;
   }
   .banner-slider, .small-banner-slider {
