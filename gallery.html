@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -63,24 +24,48 @@
   </header>
 
   <main>
-    <section class="section title">
+    <section class="section hero">
       <h1>Gallery</h1>
       <p class="tagline">Explore Our Creations</p>
     </section>
 
     <section class="section gallery-grid">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(2).jpeg?updatedAt=1730162588581" alt="Design 1" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(3).jpeg?updatedAt=1730162588640" alt="Design 2" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(1).jpeg?updatedAt=1730162588568" alt="Design 3" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(4).jpeg?updatedAt=1730162588634" alt="Design 4" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(5).jpeg?updatedAt=1730162588580" alt="Design 5" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(6).jpeg?updatedAt=1730162588588" alt="Design 6" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(7).jpeg?updatedAt=1730162588600" alt="Design 7" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(8).jpeg?updatedAt=1730162588567" alt="Design 8" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(9).jpeg?updatedAt=1730162588570" alt="Design 9" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(10).jpeg?updatedAt=1730162588590" alt="Design 10" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(11).jpeg?updatedAt=1730162588587" alt="Design 11" onclick="openPopup(this.src)">
-      <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(12).jpeg?updatedAt=1730162588609" alt="Design 12" onclick="openPopup(this.src)">
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(2).jpeg?updatedAt=1730162588581" alt="Design 1" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(3).jpeg?updatedAt=1730162588640" alt="Design 2" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(1).jpeg?updatedAt=1730162588568" alt="Design 3" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(4).jpeg?updatedAt=1730162588634" alt="Design 4" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(5).jpeg?updatedAt=1730162588580" alt="Design 5" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(6).jpeg?updatedAt=1730162588588" alt="Design 6" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(7).jpeg?updatedAt=1730162588600" alt="Design 7" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(8).jpeg?updatedAt=1730162588567" alt="Design 8" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(9).jpeg?updatedAt=1730162588570" alt="Design 9" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(10).jpeg?updatedAt=1730162588590" alt="Design 10" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(11).jpeg?updatedAt=1730162588587" alt="Design 11" onclick="openPopup(this.src)">
+      </div>
+      <div class="gallery-card">
+        <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(12).jpeg?updatedAt=1730162588609" alt="Design 12" onclick="openPopup(this.src)">
+      </div>
     </section>
   </main>
 
