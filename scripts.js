@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close dropdowns when clicking outside, but exclude home-link
   document.addEventListener('click', (e) => {
-    // Check if the click is on the home-link or its children
     const isHomeLink = e.target.classList.contains('home-link') || e.target.closest('.home-link');
     const isDropdown = e.target.closest('.dropdown');
 
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const homeLink = document.querySelector('.home-link');
   homeLink.addEventListener('click', (e) => {
     // Allow default behavior (navigate to index.html)
-    // No need to preventDefault here, let the href handle navigation
   });
 
   // Big Banner Slider
@@ -110,9 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleBuyNow(plan, price) {
-  const message = `I want to purchase the ${plan} for ₹${price}. Please provide payment details.`;
-  const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, '_blank');
+  // Detect if the device is mobile or desktop
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // On mobile, open UPI app with the given UPI ID
+    const upiId = "8440048355-2@ybl";
+    const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=AD%20Quick%20India&am=${price}&cu=INR&tn=Payment%20for%20${encodeURIComponent(plan)}`;
+    window.location.href = upiUrl;
+  } else {
+    // On desktop, show QR code popup
+    const qrPopup = document.querySelector('#qrPopup');
+    const qrCodeImg = document.querySelector('#qrCodeImg');
+    
+    // Set the QR code image (placeholder - replace with actual QR code URL)
+    qrCodeImg.src = "https://via.placeholder.com/220?text=QR+Code+for+Payment";
+    qrPopup.style.display = 'flex';
+  }
 }
 
 function closeQRPopup() {
