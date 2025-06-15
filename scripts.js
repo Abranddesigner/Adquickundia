@@ -2,9 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Toggle Mobile Menu
   const menuToggle = document.querySelector('.menu-toggle');
   const navbar = document.querySelector('#navbar');
-  menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('show');
-  });
+  if (menuToggle && navbar) {
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('show');
+    });
+  }
 
   // Dropdown Menu Toggle
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
@@ -22,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Toggle current dropdown
-      dropdownMenu.classList.toggle('active');
+      if (dropdownMenu) {
+        dropdownMenu.classList.toggle('active');
+      }
     });
   });
 
@@ -40,42 +44,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Ensure Home link works without interference
   const homeLink = document.querySelector('.home-link');
-  homeLink.addEventListener('click', (e) => {
-    // Allow default behavior (navigate to index.html)
-  });
+  if (homeLink) {
+    homeLink.addEventListener('click', (e) => {
+      // Allow default behavior (navigate to index.html)
+    });
+  }
 
   // Big Banner Slider
   const bannerSlides = document.querySelectorAll('.banner-slide');
-  let currentBannerSlide = 0;
-  const showBannerSlide = (index) => {
-    bannerSlides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  };
-  setInterval(() => {
-    currentBannerSlide = (currentBannerSlide + 1) % bannerSlides.length;
+  if (bannerSlides.length > 0) {
+    let currentBannerSlide = 0;
+    const showBannerSlide = (index) => {
+      bannerSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    };
+    setInterval(() => {
+      currentBannerSlide = (currentBannerSlide + 1) % bannerSlides.length;
+      showBannerSlide(currentBannerSlide);
+    }, 3000);
     showBannerSlide(currentBannerSlide);
-  }, 3000);
-  showBannerSlide(currentBannerSlide);
+  }
 
   // Small Banner Slider
   const smallBannerSlides = document.querySelectorAll('.small-banner-slide');
-  let currentSmallBannerSlide = 0;
-  const showSmallBannerSlide = (index) => {
-    smallBannerSlides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-  };
-  setInterval(() => {
-    currentSmallBannerSlide = (currentSmallBannerSlide + 1) % smallBannerSlides.length;
+  if (smallBannerSlides.length > 0) {
+    let currentSmallBannerSlide = 0;
+    const showSmallBannerSlide = (index) => {
+      smallBannerSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    };
+    setInterval(() => {
+      currentSmallBannerSlide = (currentSmallBannerSlide + 1) % smallBannerSlides.length;
+      showSmallBannerSlide(currentSmallBannerSlide);
+    }, 3000);
     showSmallBannerSlide(currentSmallBannerSlide);
-  }, 3000);
-  showSmallBannerSlide(currentSmallBannerSlide);
+  }
 
   // Form Submission
   const form = document.querySelector('#contactForm');
   const submitButton = document.querySelector('#submitButton');
-  if (submitButton) {
+  if (submitButton && form) {
     submitButton.addEventListener('click', () => {
       if (form.checkValidity()) {
         const name = document.querySelector('#name').value;
@@ -111,30 +121,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Calculator for Bulk SMS/Call
 function calculateTotal(type) {
+  const smsCountInput = document.getElementById('smsCount');
+  const totalAmountElement = document.getElementById('totalAmount');
+  const buyNowButton = document.getElementById('buyNowButton');
+
+  // Check if required elements exist
+  if (!smsCountInput || !totalAmountElement || !buyNowButton) {
+    console.error('Required elements (smsCount, totalAmount, buyNowButton) not found.');
+    return;
+  }
+
   if (type === 'sms' || type === 'call' || type === 'whatsapp-sms') {
     // For bulk-text-sms.html, bulk-voice-call.html, bulk-whatsapp-sms.html
-    const count = parseInt(document.getElementById('smsCount').value) || 0;
+    const count = parseInt(smsCountInput.value) || 0;
     let rate = count < 50000 ? 0.25 : 0.21;
     let totalAmount = count * rate;
 
-    const totalAmountElement = document.getElementById('totalAmount');
     totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
-
-    const buyNowButton = document.getElementById('buyNowButton');
     buyNowButton.disabled = totalAmount <= 0;
   } else {
     // For bulk-sms-call.html and digital-marketing.html (previous implementation)
-    const smsCount = parseInt(document.getElementById('smsCount').value) || 0;
-    const callCount = parseInt(document.getElementById('callCount').value) || 0;
+    const smsCount = parseInt(smsCountInput.value) || 0;
+    const callCount = parseInt(document.getElementById('callCount')?.value) || 0;
     const totalCount = smsCount + callCount;
 
     let rate = totalCount < 50000 ? 0.25 : 0.21;
     let totalAmount = totalCount * rate;
 
-    const totalAmountElement = document.getElementById('totalAmount');
     totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
-
-    const buyNowButton = document.getElementById('buyNowButton');
     buyNowButton.disabled = totalAmount <= 0;
   }
 }
@@ -162,12 +176,17 @@ function handleBuyNow(plan, price) {
     const qrPopup = document.querySelector('#qrPopup');
     const qrCodeImg = document.querySelector('#qrCodeImg');
     
-    // Set the QR code image
-    qrCodeImg.src = "https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202025-06-15%20at%2010.51.28%20PM.jpeg?updatedAt=1750008128436";
-    qrPopup.style.display = 'flex';
+    if (qrPopup && qrCodeImg) {
+      // Set the QR code image
+      qrCodeImg.src = "https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202025-06-15%20at%2010.51.28%20PM.jpeg?updatedAt=1750008128436";
+      qrPopup.style.display = 'flex';
+    }
   }
 }
 
 function closeQRPopup() {
-  document.querySelector('#qrPopup').style.display = 'none';
+  const qrPopup = document.querySelector('#qrPopup');
+  if (qrPopup) {
+    qrPopup.style.display = 'none';
+  }
 }
