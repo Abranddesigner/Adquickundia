@@ -723,6 +723,12 @@ nav a:hover, nav a.active {
   transform: translateY(-3px);
 }
 
+.btn-primary:disabled {
+  background: #4B5563;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* Digital Marketing Plan */
 .marketing-plan {
   background-color: var(--card-bg);
@@ -793,6 +799,100 @@ nav a:hover, nav a.active {
 .marketing-card .btn-primary {
   padding: 10px 30px;
   font-size: 0.9rem;
+}
+
+/* Bulk SMS/Call Section */
+.bulk-sms-call {
+  border-radius: 20px;
+  border: 1px solid var(--accent-color);
+  padding: 50px 20px;
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+
+.bulk-sms-call h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.bulk-sms-call .subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+/* Bulk Service Section (for new pages) */
+.bulk-service {
+  border-radius: 20px;
+  border: 1px solid var(--accent-color);
+  padding: 50px 20px;
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+
+.bulk-service h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.bulk-service .subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.calculator {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: #2D3748;
+  color: var(--text-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #FFFFFF;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  outline: none;
+}
+
+.total-amount {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin: 20px 0;
+  padding: 15px;
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  border: 1px solid var(--accent-color);
+}
+
+.total-amount span {
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 /* Footer */
@@ -941,7 +1041,9 @@ footer p {
   .about h2,
   .founders h2,
   .order-now h2,
-  .marketing-plan h2 {
+  .marketing-plan h2,
+  .bulk-sms-call h2,
+  .bulk-service h2 {
     font-size: 1.6rem;
   }
   .service-card h3,
@@ -979,7 +1081,8 @@ footer p {
     font-size: 0.85rem;
   }
   .form-group input,
-  .form-group textarea {
+  .form-group textarea,
+  .input-group input {
     font-size: 0.85rem;
     padding: 10px;
   }
@@ -988,15 +1091,21 @@ footer p {
     font-size: 0.85rem;
   }
   .order-now,
-  .marketing-plan {
+  .marketing-plan,
+  .bulk-sms-call,
+  .bulk-service {
     padding: 30px 15px;
   }
   .order-now h2,
-  .marketing-plan h2 {
+  .marketing-plan h2,
+  .bulk-sms-call h2,
+  .bulk-service h2 {
     font-size: 1.6rem;
   }
   .order-now .subtitle,
-  .marketing-plan .subtitle {
+  .marketing-plan .subtitle,
+  .bulk-sms-call .subtitle,
+  .bulk-service .subtitle {
     font-size: 0.9rem;
   }
   .marketing-grid {
@@ -1008,6 +1117,10 @@ footer p {
   }
   .marketing-card .price {
     font-size: 1.1rem;
+  }
+  .total-amount {
+    font-size: 1rem;
+    padding: 10px;
   }
   .footer {
     padding: 20px 10px;
@@ -1036,11 +1149,14 @@ footer p {
     height: 50px;
   }
   .order-now,
-  .marketing-plan {
+  .marketing-plan,
+  .bulk-sms-call,
+  .bulk-service {
     padding: 20px 10px;
   }
   .form-group input,
-  .form-group textarea {
+  .form-group textarea,
+  .input-group input {
     padding: 8px;
   }
   .btn-primary {
