@@ -26,13 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside, but exclude home-link
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown') && !e.target.classList.contains('home-link')) {
+    // Check if the click is on the home-link or its children
+    const isHomeLink = e.target.classList.contains('home-link') || e.target.closest('.home-link');
+    const isDropdown = e.target.closest('.dropdown');
+
+    if (!isDropdown && !isHomeLink) {
       document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
         menu.classList.remove('active');
       });
     }
+  });
+
+  // Ensure Home link works without interference
+  const homeLink = document.querySelector('.home-link');
+  homeLink.addEventListener('click', (e) => {
+    // Allow default behavior (navigate to index.html)
+    // No need to preventDefault here, let the href handle navigation
   });
 
   // Big Banner Slider
