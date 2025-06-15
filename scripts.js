@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
+    if (!e.target.closest('.dropdown') && !e.target.classList.contains('home-link')) {
       document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
         menu.classList.remove('active');
       });
