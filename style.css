@@ -147,6 +147,7 @@ nav a:hover, nav a.active {
   box-shadow: var(--shadow);
   overflow: hidden;
   z-index: 100;
+  min-width: 150px;
 }
 
 .dropdown-menu.active {
@@ -161,6 +162,7 @@ nav a:hover, nav a.active {
   font-size: 0.9rem;
   text-transform: none;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .dropdown-menu a:hover {
@@ -495,23 +497,6 @@ footer p {
 .contact-icons img {
   width: 36px;
   height: 36px;
-}
-
-/* WhatsApp Button */
-.btn-whatsapp {
-  background-color: #25D366;
-  padding: 16px;
-  border-radius: 50%;
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 100;
-  box-shadow: var(--shadow);
-}
-
-.btn-whatsapp:hover {
-  background-color: #128C7E;
-  transform: scale(1.1);
 }
 
 /* QR Popup */
