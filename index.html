@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -67,23 +28,27 @@
   </header>
 
   <main>
-    <section class="section title">
+    <section class="section hero">
       <h1 id="header-title" data-hover-text="Creative Branding Solutions">AD Quick India</h1>
-      <p class="tagline">A Brand Designer</p>
+      <p class="tagline">Crafting Memorable Brand Identities</p>
+      <a href="https://wa.me/916350262865?text=Hi,%20I’d%20like%20to%20hire%20AD%20Quick%20India%20for%20a%20project!" class="btn btn-primary">Hire Us</a>
     </section>
 
     <section class="section welcome">
       <h2>Welcome to Our Design World</h2>
       <p>AD Quick India is a creative agency crafting impactful brand identities since 2023. We blend vibrant designs with strategic storytelling to bring your vision to life. Specializing in branding, logos, and digital art, we create stunning visuals that resonate. Let’s collaborate to elevate your brand!</p>
-      <a href="https://wa.me/916350262865?text=Hi,%20I’d%20like%20to%20hire%20AD%20Quick%20India%20for%20a%20project!" class="btn btn-primary">Hire Us</a>
     </section>
 
     <section class="section recent-designs">
-      <h3>Recent Designs</h3>
-      <div class="slider">
-        <div class="slider-track">
+      <h2>Recent Designs</h2>
+      <div class="design-grid">
+        <div class="design-card">
           <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(2).jpeg?updatedAt=1730162588581" alt="Design 1" onclick="openPopup(this.src)">
+        </div>
+        <div class="design-card">
           <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(3).jpeg?updatedAt=1730162588640" alt="Design 2" onclick="openPopup(this.src)">
+        </div>
+        <div class="design-card">
           <img src="https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202024-10-29%20at%2012.40.24%20AM%20(1).jpeg?updatedAt=1730162588568" alt="Design 3" onclick="openPopup(this.src)">
         </div>
       </div>
@@ -91,7 +56,7 @@
 
     <section class="section testimonials-wrapper">
       <h2>Client Testimonials</h2>
-      <div class="testimonials-container">
+      <div class="testimonials-grid">
         <div class="testimonial-card">
           <p>Kamal’s designs are a burst of creativity. His precision is unmatched. Highly recommended for branding. A true artist at work!</p>
           <div class="client-info">
@@ -215,7 +180,7 @@
     <section class="section marketing-plan">
       <h2>Digital Marketing Plan</h2>
       <p class="subtitle">Choose Your Marketing Package</p>
-      <div class="marketing-container">
+      <div class="marketing-grid">
         <div class="marketing-card">
           <h3>1 Month</h3>
           <p>Posts: 20</p>
@@ -244,8 +209,8 @@
           <p class="price">Price: ₹72,500</p>
           <button class="btn btn-primary" onclick="handleBuyNow('12 Months Marketing Plan', 72500)">Buy Now</button>
         </div>
-        <p class="payment-info">Click 'Buy Now' to proceed with payment. For mobile, UPI will open; for desktop, scan the QR code.</p>
       </div>
+      <p class="payment-info">Click 'Buy Now' to proceed with payment. For mobile, UPI will open; for desktop, scan the QR code.</p>
     </section>
   </main>
 
