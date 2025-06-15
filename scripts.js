@@ -112,16 +112,25 @@ function handleBuyNow(plan, price) {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   if (isMobile) {
-    // On mobile, open UPI app with the given UPI ID
+    // On mobile, attempt to open UPI app
     const upiId = "8440048355-2@ybl";
-    const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=AD%20Quick%20India&am=${price}&cu=INR&tn=Payment%20for%20${encodeURIComponent(plan)}`;
-    window.location.href = upiUrl;
+    const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent("AD Quick India")}&am=${price}&cu=INR&tn=${encodeURIComponent("Payment for " + plan)}`;
+    
+    // Create a temporary link element to trigger UPI app
+    const link = document.createElement('a');
+    link.href = upiUrl;
+    link.click();
+
+    // Fallback in case UPI app doesn't open (after 2 seconds)
+    setTimeout(() => {
+      alert("Could not open UPI app. Please ensure a UPI app (like Google Pay, PhonePe) is installed, or use the QR code on a desktop device.");
+    }, 2000);
   } else {
     // On desktop, show QR code popup
     const qrPopup = document.querySelector('#qrPopup');
     const qrCodeImg = document.querySelector('#qrCodeImg');
     
-    // Set the QR code image (placeholder - replace with actual QR code URL)
+    // Set the QR code image
     qrCodeImg.src = "https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202025-06-15%20at%2010.51.28%20PM.jpeg?updatedAt=1750008128436";
     qrPopup.style.display = 'flex';
   }
