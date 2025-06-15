@@ -29,7 +29,7 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.9rem; /* Reduced base font size */
+  font-size: 0.9rem;
   background: linear-gradient(135deg, var(--secondary-bg), #000000);
   color: var(--text-color);
   line-height: 1.6;
@@ -169,7 +169,7 @@ nav {
 nav a {
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -188,7 +188,7 @@ nav a:hover, nav a.active {
 .dropdown-toggle {
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease;
@@ -222,7 +222,7 @@ nav a:hover, nav a.active {
   display: block;
   padding: 14px 20px;
   color: var(--text-color);
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   text-transform: none;
   transition: background-color 0.3s ease, color 0.3s ease;
   text-decoration: none;
@@ -300,7 +300,7 @@ nav a:hover, nav a.active {
 
 /* What We Offer */
 .what-we-offer h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
@@ -329,27 +329,27 @@ nav a:hover, nav a.active {
 }
 
 .service-card h3 {
-  font-size: 1.4rem; /* Reduced font size */
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: 15px;
 }
 
 .service-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
 /* Our Mantra */
 .our-mantra h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
 }
 
 .our-mantra p {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--text-light);
   max-width: 800px;
   margin: 0 auto 15px;
@@ -357,7 +357,7 @@ nav a:hover, nav a.active {
 
 /* Vision & Mission */
 .vision-mission h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
@@ -386,20 +386,20 @@ nav a:hover, nav a.active {
 }
 
 .vision-card h3, .mission-card h3 {
-  font-size: 1.4rem; /* Reduced font size */
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: 15px;
 }
 
 .vision-card p, .mission-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
 /* Who We Work With */
 .who-we-work-with h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
@@ -428,13 +428,13 @@ nav a:hover, nav a.active {
 }
 
 .work-with-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
 /* Why Clients Trust Us */
 .why-clients-trust-us h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
@@ -463,20 +463,20 @@ nav a:hover, nav a.active {
 }
 
 .trust-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
 /* Let’s Grow Together */
 .lets-grow h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
 }
 
 .lets-grow p {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--text-light);
   max-width: 800px;
   margin: 0 auto 15px;
@@ -484,7 +484,7 @@ nav a:hover, nav a.active {
 
 /* Recent Work */
 .recent-work h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 30px;
@@ -520,7 +520,7 @@ nav a:hover, nav a.active {
 
 /* Total Clients */
 .total-clients .highlight {
-  font-size: 3rem; /* Reduced font size */
+  font-size: 3rem;
   font-weight: 700;
   color: var(--accent-color);
   background-color: var(--card-bg);
@@ -584,14 +584,14 @@ nav a:hover, nav a.active {
 }
 
 .about h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
 }
 
 .about p {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--text-light);
   max-width: 800px;
   margin: 0 auto;
@@ -607,7 +607,6 @@ nav a:hover, nav a.active {
 }
 
 .founder-card {
-  background: var(--card-bg);
   padding: 25px;
   border-radius: 15px;
   border: 1px solid var(--accent-color);
@@ -629,19 +628,18 @@ nav a:hover, nav a.active {
 }
 
 .founder-card h3 {
-  font-size: 1.3rem; /* Reduced font size */
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--accent-color);
 }
 
 .founder-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
 /* Order Now */
 .order-now {
-  background-color: var(--card-bg);
   border-radius: 20px;
   border: 1px solid var(--accent-color);
   padding: 50px 20px;
@@ -650,14 +648,14 @@ nav a:hover, nav a.active {
 }
 
 .order-now h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 10px;
 }
 
 .order-now .subtitle {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--text-light);
   margin-bottom: 30px;
 }
@@ -677,7 +675,7 @@ nav a:hover, nav a.active {
   margin-bottom: 8px;
   display: block;
   color: var(--accent-color);
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
 }
 
 .form-group input,
@@ -686,7 +684,7 @@ nav a:hover, nav a.active {
   padding: 12px;
   border: 1px solid var(--accent-color);
   border-radius: 8px;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   background-color: #2D3748;
   color: var(--text-color);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -717,7 +715,7 @@ nav a:hover, nav a.active {
   cursor: pointer;
   display: block;
   margin: 20px auto 0;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
 }
 
 .btn-primary:hover {
@@ -736,14 +734,14 @@ nav a:hover, nav a.active {
 }
 
 .marketing-plan h2 {
-  font-size: 2.2rem; /* Reduced font size */
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 10px;
 }
 
 .marketing-plan .subtitle {
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1rem;
   color: var(--text-light);
   margin-bottom: 30px;
 }
@@ -773,20 +771,20 @@ nav a:hover, nav a.active {
 }
 
 .marketing-card h3 {
-  font-size: 1.4rem; /* Reduced font size */
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: 15px;
 }
 
 .marketing-card p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
   margin-bottom: 10px;
 }
 
 .marketing-card .price {
-  font-size: 1.2rem; /* Reduced font size */
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: 15px;
@@ -794,7 +792,7 @@ nav a:hover, nav a.active {
 
 .marketing-card .btn-primary {
   padding: 10px 30px;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
 }
 
 /* Footer */
@@ -811,7 +809,7 @@ footer {
 }
 
 footer p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   margin-bottom: 15px;
 }
 
@@ -854,7 +852,7 @@ footer p {
 }
 
 .qr-popup h3 {
-  font-size: 1.4rem; /* Reduced font size */
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent-color);
 }
@@ -865,7 +863,7 @@ footer p {
 }
 
 .qr-popup p {
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
   color: var(--text-light);
 }
 
@@ -944,13 +942,13 @@ footer p {
   .founders h2,
   .order-now h2,
   .marketing-plan h2 {
-    font-size: 1.6rem; /* Reduced font size */
+    font-size: 1.6rem;
   }
   .service-card h3,
   .vision-card h3,
   .mission-card h3,
   .marketing-card h3 {
-    font-size: 1.2rem; /* Reduced font size */
+    font-size: 1.2rem;
   }
   .service-card p,
   .vision-card p,
@@ -961,10 +959,10 @@ footer p {
   .our-mantra p,
   .about p,
   .marketing-card p {
-    font-size: 0.85rem; /* Reduced font size */
+    font-size: 0.85rem;
   }
   .total-clients .highlight {
-    font-size: 1.8rem; /* Reduced font size */
+    font-size: 1.8rem;
     padding: 15px 20px;
   }
   .work-card img {
@@ -975,19 +973,19 @@ footer p {
     height: 100px;
   }
   .founder-card h3 {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.1rem;
   }
   .founder-card p {
-    font-size: 0.85rem; /* Reduced font size */
+    font-size: 0.85rem;
   }
   .form-group input,
   .form-group textarea {
-    font-size: 0.85rem; /* Reduced font size */
+    font-size: 0.85rem;
     padding: 10px;
   }
   .btn-primary {
     padding: 10px 30px;
-    font-size: 0.85rem; /* Reduced font size */
+    font-size: 0.85rem;
   }
   .order-now,
   .marketing-plan {
@@ -995,11 +993,11 @@ footer p {
   }
   .order-now h2,
   .marketing-plan h2 {
-    font-size: 1.6rem; /* Reduced font size */
+    font-size: 1.6rem;
   }
   .order-now .subtitle,
   .marketing-plan .subtitle {
-    font-size: 0.9rem; /* Reduced font size */
+    font-size: 0.9rem;
   }
   .marketing-grid {
     grid-template-columns: 1fr;
@@ -1009,7 +1007,7 @@ footer p {
     padding: 20px;
   }
   .marketing-card .price {
-    font-size: 1.1rem; /* Reduced font size */
+    font-size: 1.1rem;
   }
   .footer {
     padding: 20px 10px;
@@ -1025,7 +1023,7 @@ footer p {
     height: 50px;
   }
   .total-clients .highlight {
-    font-size: 1.6rem; /* Reduced font size */
+    font-size: 1.6rem;
     padding: 10px 15px;
   }
   .work-card img {
@@ -1047,6 +1045,6 @@ footer p {
   }
   .btn-primary {
     padding: 8px 25px;
-    font-size: 0.8rem; /* Reduced font size */
+    font-size: 0.8rem;
   }
 }
