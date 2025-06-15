@@ -1,172 +1,64 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-
-  // Mobile Menu Toggle
+  // Toggle Mobile Menu
   const menuToggle = document.querySelector('.menu-toggle');
   const navbar = document.querySelector('#navbar');
-  if (menuToggle && navbar) {
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('show');
-      menuToggle.setAttribute('aria-expanded', navbar.classList.contains('show'));
+  menuToggle.addEventListener('click', () => {
+    navbar.classList.toggle('show');
+  });
+
+  // Big Banner Slider
+  const bannerSlides = document.querySelectorAll('.banner-slide');
+  let currentBannerSlide = 0;
+  const showBannerSlide = (index) => {
+    bannerSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
     });
-  }
+  };
+  setInterval(() => {
+    currentBannerSlide = (currentBannerSlide + 1) % bannerSlides.length;
+    showBannerSlide(currentBannerSlide);
+  }, 3000);
+  showBannerSlide(currentBannerSlide);
 
-  // Hover Conversion for Title
-  const headerTitle = document.getElementById('header-title');
-  if (headerTitle) {
-    headerTitle.addEventListener('mouseover', () => {
-      headerTitle.textContent = headerTitle.getAttribute('data-hover-text');
+  // Small Banner Slider
+  const smallBannerSlides = document.querySelectorAll('.small-banner-slide');
+  let currentSmallBannerSlide = 0;
+  const showSmallBannerSlide = (index) => {
+    smallBannerSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
     });
-    headerTitle.addEventListener('mouseout', () => {
-      headerTitle.textContent = 'AD Quick India';
-    });
-  }
+  };
+  setInterval(() => {
+    currentSmallBannerSlide = (currentSmallBannerSlide + 1) % smallBannerSlides.length;
+    showSmallBannerSlide(currentSmallBannerSlide);
+  }, 3000);
+  showSmallBannerSlide(currentSmallBannerSlide);
 
-  // Handle Buy Now Click
-  window.handleBuyNow = function(product, amount) {
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const upiUrl = `upi://pay?pa=8440048355@ybl&pn=AD%20Quick%20India&am=${amount}&cu=INR&tn=Purchase%20${encodeURIComponent(product)}`;
-
-    try {
-      if (isMobile) {
-        window.location.href = upiUrl;
-      } else {
-        showQRPopup(product, amount);
-      }
-      showSendSSButton(product);
-    } catch (error) {
-      alert('Payment initiation failed. Please try again or contact support at +916350262865.');
-      console.error('Buy Now Error:', error);
-    }
-  }
-
-  // Show QR Code Popup
-  window.showQRPopup = function(product, amount) {
-    const qrPopup = document.getElementById('qrPopup');
-    const qrCodeImg = document.getElementById('qrCodeImg');
-    if (qrPopup && qrCodeImg) {
-      qrCodeImg.src = 'https://raw.githubusercontent.com/Abranddesigner/Mr.Kamal/main/QR%20Code.jpg';
-      qrCodeImg.onerror = () => {
-        alert('Failed to load QR code. Please contact +916350262865 to complete payment.');
-        console.error('QR Code failed to load');
-      };
-      qrPopup.style.display = 'flex';
+  // Form Submission
+  const form = document.querySelector('#contactForm');
+  const submitButton = document.querySelector('#submitButton');
+  submitButton.addEventListener('click', () => {
+    if (form.checkValidity()) {
+      const name = document.querySelector('#name').value;
+      const address = document.querySelector('#address').value;
+      const mobile = document.querySelector('#mobile').value;
+      const email = document.querySelector('#email').value;
+      const content = document.querySelector('#content').value;
+      const message = `Order Details:\nName: ${name}\nAddress: ${address}\nMobile: ${mobile}\nEmail: ${email}\nContent: ${content}`;
+      const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
     } else {
-      alert('QR Popup not found. Please contact +916350262865 to complete payment.');
-      console.error('QR Popup elements missing');
+      form.reportValidity();
     }
-  }
-
-  // Close QR Code Popup
-  window.closeQRPopup = function() {
-    const qrPopup = document.getElementById('qrPopup');
-    if (qrPopup) {
-      qrPopup.style.display = 'none';
-    }
-  }
-
-  // Show Send SS on WhatsApp Button
-  window.showSendSSButton = function(product) {
-    const sendSSButton = document.getElementById('sendSSButton');
-    if (sendSSButton) {
-      sendSSButton.href = `https://wa.me/916350262865?text=Hi,%20here’s%20the%20payment%20screenshot%20for%20${encodeURIComponent(product)}.`;
-      sendSSButton.style.display = 'block';
-    } else {
-      console.error('Send SS button not found');
-    }
-  }
-
-  // Open Popup for Images
-  window.openPopup = function(src) {
-    const popup = document.getElementById('popup');
-    const popupImg = document.getElementById('popupImg');
-    if (popup && popupImg) {
-      popupImg.src = src;
-      popupImg.onerror = () => {
-        alert('Failed to load image. Please try again.');
-        console.error('Image failed to load:', src);
-      };
-      popup.style.display = 'flex';
-    } else {
-      alert('Image popup not available. Please try again.');
-      console.error('Popup or popupImg element not found');
-    }
-  }
-
-  // Close Popup
-  window.closePopup = function() {
-    const popup = document.getElementById('popup');
-    if (popup) {
-      popup.style.display = 'none';
-    }
-  }
-
-  // Contact Form Submit Button
-  const submitButton = document.getElementById('submitButton');
-  const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-
-  if (submitButton && form && formMessage) {
-    submitButton.addEventListener('click', () => {
-      console.log('Submit button clicked');
-      if (form.checkValidity()) {
-        try {
-          const name = document.getElementById('name').value.trim();
-          const address = document.getElementById('address').value.trim();
-          const mobile = document.getElementById('mobile').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const content = document.getElementById('content').value.trim();
-
-          if (!name || !address || !mobile || !email || !content) {
-            throw new Error('All fields are required.');
-          }
-
-          let message = `New Contact Form Submission:\n\n` +
-                        `Name: ${name}\n` +
-                        `Address: ${address}\n` +
-                        `Mobile: ${mobile}\n` +
-                        `Email: ${email}\n` +
-                        `Content: ${content}\n` +
-                        `Note: Photos/documents must be sent via WhatsApp in PDF or document format to +916350262865.`;
-          const encodedMessage = encodeURIComponent(message);
-          const whatsappUrl = `https://wa.me/916350262865?text=${encodedMessage}`;
-
-          console.log('WhatsApp URL:', whatsappUrl);
-          window.open(whatsappUrl, '_blank');
-
-          formMessage.style.display = 'block';
-          formMessage.textContent = 'Form submitted successfully! Check WhatsApp for details.';
-          formMessage.style.color = '#25D366';
-          alert('Form data sent to WhatsApp! Please send photos/documents in PDF or document format to +916350262865.');
-
-          form.reset();
-        } catch (error) {
-          console.error('Form submission error:', error);
-          formMessage.style.display = 'block';
-          formMessage.textContent = 'Error sending data to WhatsApp. Please try again.';
-          formMessage.style.color = '#DC2626';
-        }
-      } else {
-        console.log('Form validation failed');
-        formMessage.style.display = 'block';
-        formMessage.textContent = 'Please fill all required fields correctly.';
-        formMessage.style.color = '#DC2626';
-        form.reportValidity();
-      }
-    });
-  } else {
-    console.error('Form elements not found: submitButton, form, or formMessage');
-  }
+  });
 });
+
+function handleBuyNow(plan, price) {
+  const message = `I want to purchase the ${plan} for ₹${price}. Please provide payment details.`;
+  const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+function closeQRPopup() {
+  document.querySelector('#qrPopup').style.display = 'none';
+}
