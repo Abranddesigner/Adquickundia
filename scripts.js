@@ -122,7 +122,7 @@ function handleBuyNow(plan, price) {
     const qrCodeImg = document.querySelector('#qrCodeImg');
     
     // Set the QR code image (placeholder - replace with actual QR code URL)
-    qrCodeImg.src = "https://via.placeholder.com/220?text=QR+Code+for+Payment";
+    qrCodeImg.src = "https://ik.imagekit.io/kamalprp/WhatsApp%20Image%202025-06-15%20at%2010.51.28%20PM.jpeg?updatedAt=1750008128436";
     qrPopup.style.display = 'flex';
   }
 }
