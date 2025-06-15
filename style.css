@@ -130,6 +130,7 @@ nav a:hover, nav a.active {
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .dropdown-toggle:hover {
@@ -148,6 +149,11 @@ nav a:hover, nav a.active {
   z-index: 100;
 }
 
+.dropdown-menu.active {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
 .dropdown-menu a {
   display: block;
   padding: 12px 20px;
@@ -159,11 +165,6 @@ nav a:hover, nav a.active {
 
 .dropdown-menu a:hover {
   background-color: var(--accent-color);
-}
-
-.dropdown.active .dropdown-menu {
-  display: block;
-  animation: slideDown 0.3s ease-out;
 }
 
 .menu-toggle {
@@ -580,6 +581,9 @@ footer p {
     position: static;
     background-color: #000000;
     animation: none;
+  }
+  .dropdown-menu.active {
+    display: block;
   }
   .banner-slider, .small-banner-slider {
     width: 100%;
