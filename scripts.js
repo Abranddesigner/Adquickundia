@@ -6,6 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.classList.toggle('show');
   });
 
+  // Dropdown Menu Toggle
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = toggle.parentElement;
+      const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+      
+      // Close other open dropdowns
+      document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+        if (menu !== dropdownMenu) {
+          menu.classList.remove('active');
+        }
+      });
+
+      // Toggle current dropdown
+      dropdownMenu.classList.toggle('active');
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+        menu.classList.remove('active');
+      });
+    }
+  });
+
   // Big Banner Slider
   const bannerSlides = document.querySelectorAll('.banner-slide');
   let currentBannerSlide = 0;
@@ -50,6 +79,22 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       form.reportValidity();
     }
+  });
+
+  // Text Animation on Scroll
+  const animatedElements = document.querySelectorAll('.animated-text');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('hide');
+      } else {
+        entry.target.classList.add('hide');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  animatedElements.forEach(element => {
+    observer.observe(element);
   });
 });
 
