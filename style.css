@@ -3,13 +3,13 @@
 
 /* Theme Variables */
 :root {
-  --primary-bg: #F5F5F5; /* Light Gray-White */
-  --secondary-bg: #E0E7FF; /* Light Blue */
-  --accent-color: #FF6F61; /* Coral */
-  --text-color: #333333; /* Dark Gray */
-  --text-light: #666666; /* Medium Gray */
+  --primary-bg: #F7FAFC; /* Light Blue-Gray */
+  --secondary-bg: #FEF3E2; /* Light Peach */
+  --accent-color: #3182CE; /* Bright Blue */
+  --text-color: #1A202C; /* Dark Gray */
+  --text-light: #4A5568; /* Medium Gray */
   --card-bg: #FFFFFF; /* White */
-  --shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Reset and Base */
@@ -305,41 +305,66 @@ nav a:hover, nav a.active {
 }
 
 .demo-page h2 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
   padding: 0 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.demo-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.demo-card {
+  background: var(--card-bg);
   border-radius: 15px;
-  border: 1px solid var(--accent-color);
+  border: 2px solid var(--accent-color);
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
-.demo-grid img:hover {
-  transform: scale(1.05);
+.demo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-color: #2B6CB0; /* Darker Blue on hover */
+}
+
+.demo-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.demo-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 15px 0 10px;
+}
+
+.demo-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  padding: 0 15px;
 }
 
 /* Back to Home Button */
 .back-to-home {
   display: inline-block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: var(--accent-color);
+  margin: 40px auto;
+  padding: 12px 30px;
+  background: linear-gradient(to right, var(--accent-color), #2B6CB0);
   color: #FFFFFF;
   border-radius: 8px;
   text-decoration: none;
@@ -348,7 +373,7 @@ nav a:hover, nav a.active {
 }
 
 .back-to-home:hover {
-  background-color: #E65B50;
+  background: linear-gradient(to right, #2B6CB0, var(--accent-color));
 }
 
 /* What We Offer */
@@ -378,7 +403,7 @@ nav a:hover, nav a.active {
 
 .service-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .service-card h3 {
@@ -390,24 +415,24 @@ nav a:hover, nav a.active {
 
 .service-card p {
   font-size: 0.9rem;
-  color: #E0E0E0; /* Light gray for contrast */
+  color: #E2E8F0; /* Light gray for contrast */
 }
 
 /* What We Offer - Service Card Colors */
 .service-card.social-media {
-  background-color: #FF6F61; /* Coral */
+  background-color: #3182CE; /* Bright Blue */
 }
 
 .service-card.creative-design {
-  background-color: #4DA8DA; /* Sky Blue */
+  background-color: #ED8936; /* Orange */
 }
 
 .service-card.reel-video {
-  background-color: #2ECC71; /* Emerald */
+  background-color: #48BB78; /* Green */
 }
 
 .service-card.paid-marketing {
-  background-color: #9B59B6; /* Lavender */
+  background-color: #9F7AEA; /* Light Purple */
 }
 
 /* Our Mantra */
@@ -461,7 +486,7 @@ nav a:hover, nav a.active {
 
 .vision-card:hover, .mission-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .vision-card h3, .mission-card h3 {
@@ -503,7 +528,7 @@ nav a:hover, nav a.active {
 
 .work-with-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .work-with-card p {
@@ -545,7 +570,7 @@ nav a:hover, nav a.active {
 
 .trust-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .trust-card p {
@@ -594,7 +619,7 @@ nav a:hover, nav a.active {
 
 .work-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .work-card img {
@@ -702,7 +727,7 @@ nav a:hover, nav a.active {
 
 .founder-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .founder-card img {
@@ -779,7 +804,7 @@ nav a:hover, nav a.active {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+  box-shadow: 0 0 8px rgba(49, 130, 206, 0.3);
   outline: none;
 }
 
@@ -789,7 +814,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, var(--accent-color), #E65B50);
+  background: linear-gradient(to right, var(--accent-color), #2B6CB0);
   color: #FFFFFF;
   padding: 12px 40px;
   border-radius: 8px;
@@ -805,7 +830,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #E65B50, var(--accent-color));
+  background: linear-gradient(to right, #2B6CB0, var(--accent-color));
   transform: translateY(-3px);
 }
 
@@ -859,7 +884,7 @@ nav a:hover, nav a.active {
 
 .marketing-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .marketing-card h3 {
@@ -1051,7 +1076,8 @@ footer p {
   .lets-grow p,
   .our-mantra p,
   .about p,
-  .marketing-card p {
+  .marketing-card p,
+  .demo-card p {
     font-size: 0.85rem;
   }
   .total-clients .highlight {
@@ -1061,8 +1087,8 @@ footer p {
   .work-card img {
     height: 300px;
   }
-  .demo-grid img {
-    height: 150px;
+  .demo-card img {
+    height: 180px;
   }
   .founder-card img {
     width: 100px;
@@ -1125,8 +1151,8 @@ footer p {
   .work-card img {
     height: 200px;
   }
-  .demo-grid img {
-    height: 120px;
+  .demo-card img {
+    height: 150px;
   }
   .banner-slider {
     height: 30vh;
