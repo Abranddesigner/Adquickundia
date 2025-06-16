@@ -3,12 +3,12 @@
 
 /* Theme Variables */
 :root {
-  --primary-bg: #1F2937; /* Dark Gray */
-  --secondary-bg: #111827; /* Darker Gray */
-  --accent-color: #D4AF37; /* Gold */
-  --text-color: #F9FAFB; /* Light Gray */
+  --primary-bg: #1E2A44; /* Dark Blue */
+  --secondary-bg: #111827; /* Dark Gray */
+  --accent-color: #FFD700; /* Gold */
+  --text-color: #F5F5F5; /* Light Gray */
   --text-light: #9CA3AF; /* Gray */
-  --card-bg: #1F2937;
+  --card-bg: #2E3B55; /* Slightly Lighter Dark Blue */
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -298,6 +298,43 @@ nav a:hover, nav a.active {
   object-fit: cover;
 }
 
+/* Demo Files Section */
+.demo-files {
+  display: none; /* Hidden by default */
+}
+
+.demo-files.active {
+  display: block;
+}
+
+.demo-files h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 30px;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.demo-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid var(--accent-color);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.demo-grid img:hover {
+  transform: scale(1.05);
+}
+
 /* What We Offer */
 .what-we-offer h2 {
   font-size: 2.2rem;
@@ -342,23 +379,23 @@ nav a:hover, nav a.active {
 
 /* What We Offer - Service Card Colors */
 .service-card.social-media {
-  background-color: #D4AF37; /* Gold/Yellow */
+  background-color: #FFD700; /* Gold */
   color: #000000; /* Black text for contrast */
 }
 
 .service-card.creative-design {
   background-color: #1E2A44; /* Dark Blue */
-  color: #F9FAFB; /* Light Gray text */
+  color: #F5F5F5; /* Light Gray text */
 }
 
 .service-card.reel-video {
   background-color: #4B0082; /* Purple */
-  color: #F9FAFB; /* Light Gray text */
+  color: #F5F5F5; /* Light Gray text */
 }
 
 .service-card.paid-marketing {
   background-color: #2E1A47; /* Dark Purple */
-  color: #F9FAFB; /* Light Gray text */
+  color: #F5F5F5; /* Light Gray text */
 }
 
 /* Ensure text contrast for all service cards */
@@ -735,7 +772,7 @@ nav a:hover, nav a.active {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #FFFFFF;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
   outline: none;
 }
 
@@ -745,7 +782,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, var(--accent-color), #B89729);
+  background: linear-gradient(to right, var(--accent-color), #D4AF37);
   color: #000000;
   padding: 12px 40px;
   border-radius: 8px;
@@ -761,7 +798,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #B89729, var(--accent-color));
+  background: linear-gradient(to right, #D4AF37, var(--accent-color));
   transform: translateY(-3px);
 }
 
@@ -918,7 +955,7 @@ nav a:hover, nav a.active {
 
 .input-group input:focus {
   border-color: #FFFFFF;
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
   outline: none;
 }
 
@@ -1085,7 +1122,8 @@ footer p {
   .order-now h2,
   .marketing-plan h2,
   .bulk-sms-call h2,
-  .bulk-service h2 {
+  .bulk-service h2,
+  .demo-files h2 {
     font-size: 1.6rem;
   }
   .service-card h3,
@@ -1111,6 +1149,9 @@ footer p {
   }
   .work-card img {
     height: 300px;
+  }
+  .demo-grid img {
+    height: 150px;
   }
   .founder-card img {
     width: 100px;
@@ -1183,6 +1224,9 @@ footer p {
   }
   .work-card img {
     height: 200px;
+  }
+  .demo-grid img {
+    height: 120px;
   }
   .banner-slider {
     height: 30vh;
