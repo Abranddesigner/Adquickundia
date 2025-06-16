@@ -87,15 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = document.querySelector('#submitButton');
   if (submitButton && form) {
     submitButton.addEventListener('click', () => {
-      const inputs = form.querySelectorAll('input, textarea');
-      let isValid = true;
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          isValid = false;
-          input.reportValidity();
-        }
-      });
-      if (isValid) {
+      if (form.checkValidity()) {
         const name = document.querySelector('#name').value;
         const address = document.querySelector('#address').value;
         const mobile = document.querySelector('#mobile').value;
@@ -104,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const message = `Order Details:\nName: ${name}\nAddress: ${address}\nMobile: ${mobile}\nEmail: ${email}\nContent: ${content}`;
         const whatsappUrl = `https://wa.me/9887359001?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
+      } else {
+        form.reportValidity();
       }
     });
   }
@@ -124,6 +118,40 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(element);
   });
 });
+
+// Calculator for Bulk SMS/Call
+function calculateTotal(type) {
+  const smsCountInput = document.getElementById('smsCount');
+  const totalAmountElement = document.getElementById('totalAmount');
+  const buyNowButton = document.getElementById('buyNowButton');
+
+  // Check if required elements exist
+  if (!smsCountInput || !totalAmountElement || !buyNowButton) {
+    console.error('Required elements (smsCount, totalAmount, buyNowButton) not found.');
+    return;
+  }
+
+  if (type === 'sms' || type === 'call' || type === 'whatsapp-sms') {
+    // For bulk-text-sms.html, bulk-voice-call.html, bulk-whatsapp-sms.html
+    const count = parseInt(smsCountInput.value) || 0;
+    let rate = count < 50000 ? 0.25 : 0.21;
+    let totalAmount = count * rate;
+
+    totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
+    buyNowButton.disabled = totalAmount <= 0;
+  } else {
+    // For bulk-sms-call.html and digital-marketing.html (previous implementation)
+    const smsCount = parseInt(smsCountInput.value) || 0;
+    const callCount = parseInt(document.getElementById('callCount')?.value) || 0;
+    const totalCount = smsCount + callCount;
+
+    let rate = totalCount < 50000 ? 0.25 : 0.21;
+    let totalAmount = totalCount * rate;
+
+    totalAmountElement.textContent = `₹${totalAmount.toFixed(2)}`;
+    buyNowButton.disabled = totalAmount <= 0;
+  }
+}
 
 function handleBuyNow(plan, price) {
   // Detect if the device is mobile or desktop
