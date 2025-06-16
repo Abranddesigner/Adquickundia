@@ -3,13 +3,13 @@
 
 /* Theme Variables */
 :root {
-  --primary-bg: #F7FAFC; /* Light Blue-Gray */
-  --secondary-bg: #FEF3E2; /* Light Peach */
-  --accent-color: #3182CE; /* Bright Blue */
-  --text-color: #1A202C; /* Dark Gray */
-  --text-light: #4A5568; /* Medium Gray */
-  --card-bg: #FFFFFF; /* White */
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --primary-bg: #1F2937; /* Dark Gray */
+  --secondary-bg: #111827; /* Darker Gray */
+  --accent-color: #D4AF37; /* Gold */
+  --text-color: #F9FAFB; /* Light Gray */
+  --text-light: #9CA3AF; /* Gray */
+  --card-bg: #1F2937;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Reset and Base */
@@ -336,7 +336,7 @@ nav a:hover, nav a.active {
 .demo-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  border-color: #2B6CB0; /* Darker Blue on hover */
+  border-color: #B89729; /* Darker Gold on hover */
 }
 
 .demo-card img {
@@ -364,7 +364,7 @@ nav a:hover, nav a.active {
   display: inline-block;
   margin: 40px auto;
   padding: 12px 30px;
-  background: linear-gradient(to right, var(--accent-color), #2B6CB0);
+  background: linear-gradient(to right, var(--accent-color), #B89729); /* Updated: Gold Gradient */
   color: #FFFFFF;
   border-radius: 8px;
   text-decoration: none;
@@ -373,7 +373,7 @@ nav a:hover, nav a.active {
 }
 
 .back-to-home:hover {
-  background: linear-gradient(to right, #2B6CB0, var(--accent-color));
+  background: linear-gradient(to right, #B89729, var(--accent-color));
 }
 
 /* What We Offer */
@@ -409,30 +409,13 @@ nav a:hover, nav a.active {
 .service-card h3 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #FFFFFF; /* White text for contrast on colored backgrounds */
+  color: var(--accent-color);
   margin-bottom: 15px;
 }
 
 .service-card p {
   font-size: 0.9rem;
-  color: #E2E8F0; /* Light gray for contrast */
-}
-
-/* What We Offer - Service Card Colors */
-.service-card.social-media {
-  background-color: #3182CE; /* Bright Blue */
-}
-
-.service-card.creative-design {
-  background-color: #ED8936; /* Orange */
-}
-
-.service-card.reel-video {
-  background-color: #48BB78; /* Green */
-}
-
-.service-card.paid-marketing {
-  background-color: #9F7AEA; /* Light Purple */
+  color: var(--text-light);
 }
 
 /* Our Mantra */
@@ -796,7 +779,7 @@ nav a:hover, nav a.active {
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   font-size: 0.9rem;
-  background-color: #F9FAFB;
+  background-color: #2D3748;
   color: var(--text-color);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -804,7 +787,7 @@ nav a:hover, nav a.active {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent-color);
-  box-shadow: 0 0 8px rgba(49, 130, 206, 0.3);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
   outline: none;
 }
 
@@ -814,7 +797,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, var(--accent-color), #2B6CB0);
+  background: linear-gradient(to right, var(--accent-color), #B89729);
   color: #FFFFFF;
   padding: 12px 40px;
   border-radius: 8px;
@@ -830,7 +813,7 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #2B6CB0, var(--accent-color));
+  background: linear-gradient(to right, #B89729, var(--accent-color));
   transform: translateY(-3px);
 }
 
