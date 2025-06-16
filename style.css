@@ -3,13 +3,13 @@
 
 /* Theme Variables */
 :root {
-  --primary-bg: #1E2A44; /* Dark Blue */
-  --secondary-bg: #111827; /* Dark Gray */
-  --accent-color: #FFD700; /* Gold */
-  --text-color: #F5F5F5; /* Light Gray */
-  --text-light: #9CA3AF; /* Gray */
-  --card-bg: #2E3B55; /* Slightly Lighter Dark Blue */
-  --shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  --primary-bg: #F5F5F5; /* Light Gray-White */
+  --secondary-bg: #E0E7FF; /* Light Blue */
+  --accent-color: #FF6F61; /* Coral */
+  --text-color: #333333; /* Dark Gray */
+  --text-light: #666666; /* Medium Gray */
+  --card-bg: #FFFFFF; /* White */
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Reset and Base */
@@ -30,7 +30,7 @@ html, body {
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9rem;
-  background: linear-gradient(135deg, var(--secondary-bg), #000000);
+  background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
   color: var(--text-color);
   line-height: 1.6;
   position: relative;
@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.1;
+  opacity: 0.15;
 }
 
 .bg-icon {
@@ -133,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 header {
-  background: linear-gradient(to bottom, var(--primary-bg), #000000);
+  background: #000000; /* Black */
   padding: 20px 24px;
   position: sticky;
   top: 0;
@@ -204,7 +204,7 @@ nav a:hover, nav a.active {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--primary-bg);
+  background-color: #000000; /* Match header color */
   border-radius: 10px;
   border: 1px solid var(--accent-color);
   box-shadow: var(--shadow);
@@ -221,7 +221,7 @@ nav a:hover, nav a.active {
 .dropdown-menu a {
   display: block;
   padding: 14px 20px;
-  color: var(--text-color);
+  color: var(--accent-color);
   font-size: 0.9rem;
   text-transform: none;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -230,7 +230,7 @@ nav a:hover, nav a.active {
 
 .dropdown-menu a:hover {
   background-color: var(--accent-color);
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .menu-toggle {
@@ -298,16 +298,13 @@ nav a:hover, nav a.active {
   object-fit: cover;
 }
 
-/* Demo Files Section */
-.demo-files {
-  display: none; /* Hidden by default */
+/* Demo Page Styles */
+.demo-page {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
 }
 
-.demo-files.active {
-  display: block;
-}
-
-.demo-files h2 {
+.demo-page h2 {
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--accent-color);
@@ -319,6 +316,8 @@ nav a:hover, nav a.active {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
   padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .demo-grid img {
@@ -333,6 +332,23 @@ nav a:hover, nav a.active {
 
 .demo-grid img:hover {
   transform: scale(1.05);
+}
+
+/* Back to Home Button */
+.back-to-home {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-home:hover {
+  background-color: #E65B50;
 }
 
 /* What We Offer */
@@ -362,45 +378,36 @@ nav a:hover, nav a.active {
 
 .service-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .service-card h3 {
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--accent-color);
+  color: #FFFFFF; /* White text for contrast on colored backgrounds */
   margin-bottom: 15px;
 }
 
 .service-card p {
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: #E0E0E0; /* Light gray for contrast */
 }
 
 /* What We Offer - Service Card Colors */
 .service-card.social-media {
-  background-color: #FFD700; /* Gold */
-  color: #000000; /* Black text for contrast */
+  background-color: #FF6F61; /* Coral */
 }
 
 .service-card.creative-design {
-  background-color: #1E2A44; /* Dark Blue */
-  color: #F5F5F5; /* Light Gray text */
+  background-color: #4DA8DA; /* Sky Blue */
 }
 
 .service-card.reel-video {
-  background-color: #4B0082; /* Purple */
-  color: #F5F5F5; /* Light Gray text */
+  background-color: #2ECC71; /* Emerald */
 }
 
 .service-card.paid-marketing {
-  background-color: #2E1A47; /* Dark Purple */
-  color: #F5F5F5; /* Light Gray text */
-}
-
-/* Ensure text contrast for all service cards */
-.service-card p {
-  color: inherit; /* Inherit color from parent for consistency */
+  background-color: #9B59B6; /* Lavender */
 }
 
 /* Our Mantra */
@@ -454,7 +461,7 @@ nav a:hover, nav a.active {
 
 .vision-card:hover, .mission-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .vision-card h3, .mission-card h3 {
@@ -496,7 +503,7 @@ nav a:hover, nav a.active {
 
 .work-with-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .work-with-card p {
@@ -538,7 +545,7 @@ nav a:hover, nav a.active {
 
 .trust-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .trust-card p {
@@ -587,7 +594,7 @@ nav a:hover, nav a.active {
 
 .work-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .work-card img {
@@ -695,7 +702,7 @@ nav a:hover, nav a.active {
 
 .founder-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .founder-card img {
@@ -764,15 +771,15 @@ nav a:hover, nav a.active {
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   font-size: 0.9rem;
-  background-color: #2D3748;
+  background-color: #F9FAFB;
   color: var(--text-color);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #FFFFFF;
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
   outline: none;
 }
 
@@ -782,8 +789,8 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, var(--accent-color), #D4AF37);
-  color: #000000;
+  background: linear-gradient(to right, var(--accent-color), #E65B50);
+  color: #FFFFFF;
   padding: 12px 40px;
   border-radius: 8px;
   font-weight: 600;
@@ -798,12 +805,12 @@ nav a:hover, nav a.active {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #D4AF37, var(--accent-color));
+  background: linear-gradient(to right, #E65B50, var(--accent-color));
   transform: translateY(-3px);
 }
 
 .btn-primary:disabled {
-  background: #4B5563;
+  background: #D1D5DB;
   cursor: not-allowed;
   transform: none;
 }
@@ -852,7 +859,7 @@ nav a:hover, nav a.active {
 
 .marketing-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .marketing-card h3 {
@@ -880,103 +887,9 @@ nav a:hover, nav a.active {
   font-size: 0.9rem;
 }
 
-/* Bulk SMS/Call Section */
-.bulk-sms-call {
-  border-radius: 20px;
-  border: 1px solid var(--accent-color);
-  padding: 50px 20px;
-  box-shadow: var(--shadow);
-  margin: 0;
-}
-
-.bulk-sms-call h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin-bottom: 10px;
-}
-
-.bulk-sms-call .subtitle {
-  font-size: 1rem;
-  color: var(--text-light);
-  margin-bottom: 30px;
-}
-
-/* Bulk Service Section (for new pages) */
-.bulk-service {
-  border-radius: 20px;
-  border: 1px solid var(--accent-color);
-  padding: 50px 20px;
-  box-shadow: var(--shadow);
-  margin: 0;
-}
-
-.bulk-service h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin-bottom: 10px;
-}
-
-.bulk-service .subtitle {
-  font-size: 1rem;
-  color: var(--text-light);
-  margin-bottom: 30px;
-}
-
-.calculator {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.input-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.input-group label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  display: block;
-  color: var(--accent-color);
-  font-size: 0.9rem;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--accent-color);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  background-color: #2D3748;
-  color: var(--text-color);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-group input:focus {
-  border-color: #FFFFFF;
-  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-  outline: none;
-}
-
-.total-amount {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  margin: 20px 0;
-  padding: 15px;
-  background-color: var(--secondary-bg);
-  border-radius: 8px;
-  border: 1px solid var(--accent-color);
-}
-
-.total-amount span {
-  color: var(--accent-color);
-  font-weight: bold;
-}
-
 /* Footer */
 footer {
-  background-color: var(--primary-bg);
+  background-color: var(--secondary-bg);
   color: var(--text-color);
   padding: 30px 20px;
   position: relative;
@@ -1068,7 +981,7 @@ footer p {
     right: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(to bottom, var(--primary-bg), #000000);
+    background: #000000; /* Match header color */
     padding: 20px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -1080,7 +993,7 @@ footer p {
   }
   .dropdown-menu {
     position: static;
-    background-color: var(--primary-bg);
+    background-color: #000000; /* Match header color */
     animation: none;
   }
   .dropdown-menu.active {
@@ -1107,7 +1020,7 @@ footer p {
   .floating-icons {
     display: none;
   }
-  .section {
+  .section, .demo-page {
     padding: 40px 10px;
   }
   .what-we-offer h2,
@@ -1121,9 +1034,7 @@ footer p {
   .founders h2,
   .order-now h2,
   .marketing-plan h2,
-  .bulk-sms-call h2,
-  .bulk-service h2,
-  .demo-files h2 {
+  .demo-page h2 {
     font-size: 1.6rem;
   }
   .service-card h3,
@@ -1164,8 +1075,7 @@ footer p {
     font-size: 0.85rem;
   }
   .form-group input,
-  .form-group textarea,
-  .input-group input {
+  .form-group textarea {
     font-size: 0.85rem;
     padding: 10px;
   }
@@ -1174,21 +1084,15 @@ footer p {
     font-size: 0.85rem;
   }
   .order-now,
-  .marketing-plan,
-  .bulk-sms-call,
-  .bulk-service {
+  .marketing-plan {
     padding: 30px 15px;
   }
   .order-now h2,
-  .marketing-plan h2,
-  .bulk-sms-call h2,
-  .bulk-service h2 {
+  .marketing-plan h2 {
     font-size: 1.6rem;
   }
   .order-now .subtitle,
-  .marketing-plan .subtitle,
-  .bulk-sms-call .subtitle,
-  .bulk-service .subtitle {
+  .marketing-plan .subtitle {
     font-size: 0.9rem;
   }
   .marketing-grid {
@@ -1200,10 +1104,6 @@ footer p {
   }
   .marketing-card .price {
     font-size: 1.1rem;
-  }
-  .total-amount {
-    font-size: 1rem;
-    padding: 10px;
   }
   .footer {
     padding: 20px 10px;
@@ -1235,14 +1135,11 @@ footer p {
     height: 50px;
   }
   .order-now,
-  .marketing-plan,
-  .bulk-sms-call,
-  .bulk-service {
+  .marketing-plan {
     padding: 20px 10px;
   }
   .form-group input,
-  .form-group textarea,
-  .input-group input {
+  .form-group textarea {
     padding: 8px;
   }
   .btn-primary {
