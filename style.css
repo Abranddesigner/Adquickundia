@@ -340,6 +340,32 @@ nav a:hover, nav a.active {
   color: var(--text-light);
 }
 
+/* What We Offer - Service Card Colors */
+.service-card.social-media {
+  background-color: #D4AF37; /* Gold/Yellow */
+  color: #000000; /* Black text for contrast */
+}
+
+.service-card.creative-design {
+  background-color: #1E2A44; /* Dark Blue */
+  color: #F9FAFB; /* Light Gray text */
+}
+
+.service-card.reel-video {
+  background-color: #4B0082; /* Purple */
+  color: #F9FAFB; /* Light Gray text */
+}
+
+.service-card.paid-marketing {
+  background-color: #2E1A47; /* Dark Purple */
+  color: #F9FAFB; /* Light Gray text */
+}
+
+/* Ensure text contrast for all service cards */
+.service-card p {
+  color: inherit; /* Inherit color from parent for consistency */
+}
+
 /* Our Mantra */
 .our-mantra h2 {
   font-size: 2.2rem;
@@ -348,10 +374,19 @@ nav a:hover, nav a.active {
   margin-bottom: 20px;
 }
 
+.our-mantra .mantra-box {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--accent-color);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .our-mantra p {
   font-size: 1rem;
   color: var(--text-light);
-  max-width: 800px;
   margin: 0 auto 15px;
 }
 
@@ -438,6 +473,13 @@ nav a:hover, nav a.active {
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: 20px;
+}
+
+.why-clients-trust-us .trust-box {
+  border: 1px solid var(--accent-color);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow);
 }
 
 .trust-grid {
