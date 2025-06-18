@@ -3,13 +3,13 @@
 
 /* Theme Variables */
 :root {
-  --primary-bg: #1F2937; /* Dark Gray */
-  --secondary-bg: #111827; /* Darker Gray */
-  --accent-color: #D4AF37; /* Gold */
-  --text-color: #F9FAFB; /* Light Gray */
-  --text-light: #9CA3AF; /* Gray */
-  --card-bg: #1F2937;
-  --shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+  --primary-bg: #fafafa;
+  --secondary-bg: #ffffff;
+  --accent-color: #bfa054;     /* Muted Gold */
+  --text-color: #1a1a1a;
+  --text-light: #7c7c7c;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
 /* Reset and Base */
@@ -386,35 +386,41 @@ nav a:hover, nav a.active {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  margin-top: 40px;
-  padding: 0 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-card {
-  background-color: var(--card-bg);
-  border-radius: 15px;
-  border: 1px solid var(--accent-color);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
   padding: 30px;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  color: var(--text-color);
 }
 
 .service-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-color);
 }
 
 .service-card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
   color: var(--accent-color);
-  margin-bottom: 15px;
 }
 
 .service-card p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text-light);
 }
 
