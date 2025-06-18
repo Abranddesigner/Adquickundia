@@ -384,40 +384,37 @@ nav a:hover, nav a.active {
   margin-bottom: 20px;
 }
 
+.services-wrapper {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
 .services-scroll {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   gap: 20px;
-  padding: 20px;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 20px 40px;
 }
-
 .service-card {
   flex: 0 0 auto;
   width: 300px;
   scroll-snap-align: start;
-  background: var(--card-bg);
-  box-shadow: var(--shadow);
   border-radius: 16px;
   padding: 24px;
-  transition: transform 0.3s;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
-
 .service-card:hover {
   transform: translateY(-5px);
 }
-
-/* Optional: Hide scroll bar on Chrome/Safari/Edge */
-.services-scroll::-webkit-scrollbar {
-  height: 10px;
-}
-.services-scroll::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
-  border-radius: 6px;
-}
-.services-scroll::-webkit-scrollbar-track {
-  background: transparent;
+.black-bg { background-color: #111; }
+.navy-bg { background-color: #1e3a8a; }
+.purple-bg { background-color: #5b21b6; }
+.green-bg { background-color: #064e3b; }
+.red-bg { background-color: #7f1d1d; }
 }
 
 /* Our Mantra */
