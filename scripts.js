@@ -190,3 +190,20 @@ function closeQRPopup() {
     qrPopup.style.display = 'none';
   }
 }
+    function autoScrollServices() {
+      const container = document.getElementById('servicesScroll');
+      let scrollAmount = 0;
+      setInterval(() => {
+        if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+          scrollAmount = 0;
+        } else {
+          scrollAmount += 320;
+        }
+        container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      }, 3000);
+    }
+    window.onload = autoScrollServices;
+}
+}
+}
+
