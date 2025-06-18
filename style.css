@@ -384,44 +384,40 @@ nav a:hover, nav a.active {
   margin-bottom: 20px;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+.services-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
-  color: var(--text-color);
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  border-color: var(--accent-color);
+  transform: translateY(-5px);
 }
 
-.service-card h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--accent-color);
+/* Optional: Hide scroll bar on Chrome/Safari/Edge */
+.services-scroll::-webkit-scrollbar {
+  height: 10px;
 }
-
-.service-card p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: var(--text-light);
+.services-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 6px;
+}
+.services-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Our Mantra */
